@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package cards;
+
+message CreateCardRequest {
+	string name = 1;
+	string description = 2;
+}
+
+message CardResponse {
+	string id = 1;
+	string name = 2;
+	string description = 3;
+	google.protobuf.Timestamp creation_date = 4;
+}
+
+service CardsService {
+	rpc CreateCard (CreateCardRequest) returns (CardResponse) {}
+}
